@@ -44,7 +44,7 @@ class FPS extends TextField
 		The current frame rate, expressed using frames-per-second
 	**/
 	public var currentFPS(default, null):Int;
-	private var os:String;
+	private var os:String = '';
 
 	@:noCompletion private var cacheCount:Int;
 	@:noCompletion private var currentTime:Float;

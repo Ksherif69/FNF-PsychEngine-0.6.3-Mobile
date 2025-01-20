@@ -54,7 +54,7 @@
       "name": "lime",
       "type": "git",
       "ref": "main",
-      "url": "https://github.com/mcagabe19-stuff/lime-8.2.1"
+      "url": "https://github.com/mcagabe19-stuff/lime"
     },
     {
       "name": "openfl",
