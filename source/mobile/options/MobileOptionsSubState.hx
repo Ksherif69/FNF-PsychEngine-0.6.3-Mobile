@@ -99,8 +99,7 @@ class MobileOptionsSubState extends BaseOptionsMenu
 
 		try
 		{
-			if (ClientPrefs.storageType != "EXTERNAL")
-				Sys.command('rm', ['-rf', lastStoragePath]);
+			Sys.command('rm', ['-rf', lastStoragePath]);
 		}
 		catch (e:haxe.Exception)
 			trace('Failed to remove last directory. (${e.message})');
