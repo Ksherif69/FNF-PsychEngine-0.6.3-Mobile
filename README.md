@@ -18,7 +18,7 @@ If you want video support on your mod, simply do `haxelib install hxCodec` on a 
 otherwise, you can delete the "VIDEOS_ALLOWED" Line on Project.xml
 
 ## Mobile Credits:
-* Lily - Head Porter
+* fuck you lily pedophile im stealing your port 
 
 ### Mobile Special Thanks
 * Mihai Alexandru - Author of mobile controls and also his new storage stuff and FlxRuntimeShader is used here
