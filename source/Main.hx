@@ -10,6 +10,7 @@ import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
+import lime.app.Application;
 #if mobile
 import mobile.CopyState;
 #end
@@ -72,8 +73,11 @@ class Main extends Sprite
 		var display = lime.system.System.getDisplay(0);
 		if (display != null) {
 			var dpiScale:Float = display.dpi / 96;
-			lime.app.Application.current.window.width = Std.int(game.width * dpiScale);
-			lime.app.Application.current.window.height = Std.int(game.height * dpiScale);
+			Application.current.window.width = Std.int(gameWidth * dpiScale);
+			Application.current.window.height = Std.int(gameHeight * dpiScale);
+
+			Application.current.window.x = Std.int((Application.current.window.display.bounds.width - Application.current.window.width) / 2);
+			Application.current.window.y = Std.int((Application.current.window.display.bounds.height - Application.current.window.height) / 2);
 		}
 		#end
 
