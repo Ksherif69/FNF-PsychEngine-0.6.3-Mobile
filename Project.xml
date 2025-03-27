@@ -138,8 +138,7 @@
 	<haxelib name="faxe" if='switch'/>
 	<!--<haxelib name="polymod"/> -->
 	<haxelib name="hxdiscord_rpc" if="DISCORD_ALLOWED"/>
-	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
-	<haxelib name="extension-androidtools" if="android" />
+	<!-- <haxelib name="hxcpp-debug-server"/> -->
 
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->
@@ -204,9 +203,14 @@
 	<!-- Allow Access to Engine Files in mobile -->
 	<haxedef name="SHARE_MOBILE_FILES" if="mobile" />
 
+	<!--Macro fixes-->
+	<haxeflag name="--macro" value="allowPackage('flash')" />
+	<haxeflag name="--macro" value="include('my.pack')" />
+
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
+	<assets path='art/iconOG.png' rename='icon.png' if="linux || mac" />
 	
 	<icon path="art/icon16.png" size='16'/>
 	<icon path="art/icon32.png" size='32'/>

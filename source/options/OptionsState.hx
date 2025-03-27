@@ -72,12 +72,15 @@ class OptionsState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		var tipText:FlxText = new FlxText(150, FlxG.height - 24, 0, 'Press C to Go Mobile Controls Menu', 16);
-		tipText.setFormat("VCR OSD Mono", 17, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		tipText.borderSize = 1.25;
-		tipText.scrollFactor.set();
-		tipText.antialiasing = ClientPrefs.globalAntialiasing;
-		add(tipText);
+		if (controls.mobileC)
+		{
+			var tipText:FlxText = new FlxText(150, FlxG.height - 24, 0, 'Press ' + (FlxG.onMobile ? 'C' : 'CTRL or C') + ' to Go Mobile Controls Menu', 16);
+			tipText.setFormat("VCR OSD Mono", 17, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			tipText.borderSize = 1.25;
+			tipText.scrollFactor.set();
+			tipText.antialiasing = ClientPrefs.globalAntialiasing;
+			add(tipText);
+		}
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -131,7 +134,7 @@ class OptionsState extends MusicBeatState
 			openSelectedSubstate(options[curSelected]);
 		}
 
-		if (touchPad != null && touchPad.buttonC.justPressed) {
+		if (touchPad != null && touchPad.buttonC.justPressed || FlxG.keys.justPressed.CONTROL && controls.mobileC) {
 			touchPad.active = touchPad.visible = persistentUpdate = false;
 			openSubState(new mobile.MobileControlSelectSubState());
 		}

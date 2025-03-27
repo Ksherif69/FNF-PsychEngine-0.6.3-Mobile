@@ -103,7 +103,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.onChange = onChangeFPSCounter;
 		#end
 
-		#if (sys && !android)
+		#if native
 		var option:Option = new Option('VSync',
 			'If checked, Enables VSync fixing any screen tearing at the cost of capping the FPS to screen refresh rate.\n(Must restart the game to have an effect)',
 			'vsync',
@@ -166,13 +166,8 @@ class VisualsUISubState extends BaseOptionsMenu
 	}
 	#end
 
-	#if (sys && !android)
+	#if native
 	function onChangeVSync()
-	{
-		var file:String = lime.system.System.applicationStorageDirectory + "vsync.txt";
-		if(FileSystem.exists(file))
-			FileSystem.deleteFile(file);
-		File.saveContent(file, Std.string(ClientPrefs.vsync));
-	}
+		lime.app.Application.current.window.vsync = ClientPrefs.vsync;
 	#end
 }
